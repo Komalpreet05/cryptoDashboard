@@ -1,21 +1,22 @@
-import { HStack, Heading, MenuButton, MenuList, MenuItem, Button, Menu, Box } from '@chakra-ui/react'
+import { HStack, Heading, MenuButton, MenuList, MenuItem, Button, Menu, Box, Icon } from '@chakra-ui/react'
 import React from 'react'
+import { FaCircleUser } from "react-icons/fa6";
+import { FaBars } from "react-icons/fa";
 
-const TopNav = () => {
+const TopNav = ({ title, onOpen }) => {
     return (
-        <Box>
-            <HStack boxShadow="xl" h="16" justify={'space-between'} px={32} maxW={'60rem'}>
-                <Heading>Dashboard</Heading>
+        <Box px={"4"} bg={'white'}>
+            <HStack h="16" justify={'space-between'} maxW={'70rem'} mx={'auto'}>
+                <Icon as={FaBars} onClick={onOpen} display={{ base: "block", lg: "none" }}></Icon>
+                <Heading fontSize={'28px'} fontWeight={'medium'}>{title}</Heading>
                 <Menu>
-                    <MenuButton as={Button}>
-                        Actions
+                    <MenuButton as={Button} bg={'none'}>
+                        <Icon as={FaCircleUser} fontSize={'24px'} color={'black'} />
                     </MenuButton>
                     <MenuList>
-                        <MenuItem>Download</MenuItem>
-                        <MenuItem>Create a Copy</MenuItem>
-                        <MenuItem>Mark as Draft</MenuItem>
-                        <MenuItem>Delete</MenuItem>
-                        <MenuItem>Attend a Workshop</MenuItem>
+                        <MenuItem>Log Out</MenuItem>
+                        <MenuItem>Support</MenuItem>
+
                     </MenuList>
                 </Menu>
             </HStack>

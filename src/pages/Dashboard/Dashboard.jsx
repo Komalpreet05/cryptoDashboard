@@ -1,18 +1,31 @@
 import React from 'react'
-import SideNav from '../../components/SideNav'
-import TopNav from '../../components/TopNav'
-import { Box, Flex } from '@chakra-ui/react'
+import DashboardLayout from '../../components/DashboardLayout'
+import PortfolioSection from './components/PortfolioSection'
+import PriceSection from './components/PriceSection'
+import { Grid, GridItem } from '@chakra-ui/react'
+import Transactions from './components/Transactions'
+
 
 const Dashboard = () => {
     return (
-        <div>
-            <Flex>
-                <SideNav></SideNav>
-                <Box flexGrow={1}>
-                    <TopNav></TopNav>
-                </Box>
-            </Flex>
-        </div>
+        <DashboardLayout title="Dashboard">
+            <Grid gridTemplateColumns={{
+                md: 'repeat(2,1fr)',
+                base: 'repeat(1,1fr)'
+            }} gap={6}>
+                <GridItem colSpan={2}>
+                    <PortfolioSection />
+                </GridItem>
+                <GridItem colSpan={1}>
+                    <PriceSection />
+                </GridItem>
+                <GridItem colSpan={1}>
+                    <Transactions />
+                </GridItem>
+            </Grid>
+
+
+        </DashboardLayout>
     )
 }
 
